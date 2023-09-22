@@ -1,0 +1,14 @@
+# Archivos temporales
+__pycache__/
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración
+.secrets.json
+.vscode/
+
+# Archivos de compilación
+.coverage
+.pytest_cache
+.mypy_cache
+.tox/
