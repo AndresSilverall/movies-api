@@ -1,12 +1,12 @@
-from rest_framework import routers
+from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
 from . import apiviews
 
 
-router = routers.DefaultRouter()
+urlpatterns = [
+    path('api/movies/', apiviews.get_movies, name='movies-list'),
+]
 
-router.register(r"movies/", apiviews.get_movies, basename="movies")
-urlpatterns = router.urls
 
 #suffix
-#urlpatterns = format_suffix_patterns(urlpatterns)
+urlpatterns = format_suffix_patterns(urlpatterns)
