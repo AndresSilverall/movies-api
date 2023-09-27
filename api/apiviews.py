@@ -8,7 +8,12 @@ from api.serializers import MovieSerializer
 @api_view(["GET"])
 def get_all_movies(request, format=None):
     """
-    get all the movie details like title, director, year, writer, desription.
+    The user make a request to get all the resources stored on the DB.
+
+    Example: 'api/movies/'
+
+    Returns: All the movies. 
+
     """
     if request.method == "GET":
         movie = Movies.objects.all()
@@ -18,6 +23,15 @@ def get_all_movies(request, format=None):
 
 @api_view(["GET"])
 def get_movie_detail(request, pk: int):
+    """
+    Args: The primary key of the model 'Movies'.
+    
+    Example: 'api/movie-detail/2'
+
+    Returns: The movie details like title, description, director,
+    writer, year.
+
+    """
     if request.method == "GET":
         movie = Movies.objects.filter(id=pk).first()
         if movie is not None:
@@ -33,8 +47,15 @@ def get_movie_detail(request, pk: int):
 
 @api_view(["POST"])
 def add_movie(request):
+    """
+    The user can store a new movie on the DB.
+
+    Example: 'api/add-movie/'
+
+    Returns: A message with the new movie added.
+
+    """
     if request.method == "POST":
-        #movie = Movies.objects.all()
         movie_serializer = MovieSerializer(data=request.data)
         if movie_serializer.is_valid():
             movie_serializer.save()
@@ -49,7 +70,14 @@ def add_movie(request):
 @api_view(["PUT"])
 def update_movie(request, pk: int):
     """
-    Update movie:
+    Update movie.
+
+    Args: The primary key of the model 'Movies'.
+
+    Example: 'api/update-movie/id'
+
+    Returns: A message with the movie updated.
+
     """
     if request.method == "PUT":
         movie = Movies.objects.filter(id=pk).first()
@@ -69,9 +97,22 @@ def update_movie(request, pk: int):
 
 @api_view(["DELETE"])
 def delete_movie(request, pk: int):
+    """
+    Args: The primary key of the model 'Movies'.
+
+    Example: 'api/delete-movie/4'
+
+    Returns: A message with the movie deleted.
+
+    """
     if request.method == "DELETE":
         movie = Movies.objects.filter(id=pk)
         movie.delete()
         return Response({
             "message": "Movie deleted!"
         }, status=status.HTTP_200_OK)
+
+
+@api_view(["POST"])
+def register_user(request):
+    pass
