@@ -40,8 +40,9 @@ def get_movie_detail(request, pk: int):
             return Response(data=movie_serializer.data, status=status.HTTP_200_OK)
         else:
             return Response({
-                "message": "Movie not found!"
-            }, status=status.HTTP_404_NOT_FOUND)
+                "message": "Movie not found!",
+                "status": status.HTTP_404_NOT_FOUND
+            })
 
 
 
@@ -60,11 +61,13 @@ def add_movie(request):
         if movie_serializer.is_valid():
             movie_serializer.save()
             return Response({
-                "message": "New movie added!",
+                "message": "Movie added successfully!",
                 "status": status.HTTP_201_CREATED
             })
-        
-        return Response(status=status.HTTP_409_CONFLICT)
+        else:
+            return Response(data=movie_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
 
 
 @api_view(["PUT"])
@@ -86,12 +89,11 @@ def update_movie(request, pk: int):
             if movie_serializer.is_valid():
                 movie_serializer.save()
                 return Response({
-                    "message": "Movie updated successfully!"
-                }, status=status.HTTP_201_CREATED)
-        else:
-            return Response({
-                "message": "Movie not found"
-            })
+                    "message": "Movie updated successfully!",
+                    "status": status.HTTP_201_CREATED
+                })
+            else:
+                return Response(data=movie_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 
@@ -105,14 +107,24 @@ def delete_movie(request, pk: int):
     Returns: A message with the movie deleted.
 
     """
-    if request.method == "DELETE":
+    try:
         movie = Movies.objects.filter(id=pk)
-        movie.delete()
+                
+        if request.method == "DELETE":
+            movie.delete()
+            return Response({
+                "message": "Movie deleted!",
+                "status": status.HTTP_200_OK
+            })
+        
+    except Movies.DoesNotExist as e:
         return Response({
-            "message": "Movie deleted!"
-        }, status=status.HTTP_200_OK)
+            "message": "Error, movie not found!",
+            "status": str(e)
+        })
 
 
+#-----This section is about the Authentication------
 @api_view(["POST"])
 def register_user(request):
     pass
