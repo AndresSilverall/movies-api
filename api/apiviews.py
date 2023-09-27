@@ -39,8 +39,9 @@ def add_movie(request):
         if movie_serializer.is_valid():
             movie_serializer.save()
             return Response({
-                "message": "New movie added!"
-            }, status=status.HTTP_201_CREATED)
+                "message": "New movie added!",
+                "status": status.HTTP_201_CREATED
+            })
         
         return Response(status=status.HTTP_409_CONFLICT)
 
