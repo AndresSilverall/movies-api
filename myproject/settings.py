@@ -37,7 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #dependencies
     'rest_framework',
+    'drf_yasg',
+    'rest_framework_swagger',
 
     #myapps
     'api',
@@ -73,6 +77,14 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
+
+
+SWAGGER_SETTINGS = {
+    'USE_SESSION_AUTH': False,  # Deshabilita la autenticación basada en sesiones
+    'api_version': '1.0',  # Versión de tu API
+    'enabled_methods': ['get', 'post', 'put', 'patch', 'delete'],  # Métodos HTTP permitidos
+    'api_path': '/',  # Ruta base para Swagger
+}
 
 
 # Database

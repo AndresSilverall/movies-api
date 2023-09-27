@@ -9,6 +9,9 @@ urlpatterns = [
     path('api/add-movie/', apiviews.add_movie, name='add_movie'),
     path('api/update-movie/<int:pk>', apiviews.update_movie, name='update_movie'),
     path('api/delete-movie/<int:pk>', apiviews.delete_movie, name='delete_movie'),
+
+    #Documentation with Swagger: endpoints
+    #path('docs/', schema_view, name='docs'),
 ]
 
 
