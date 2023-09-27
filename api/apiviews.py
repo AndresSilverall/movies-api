@@ -130,11 +130,19 @@ def delete_movie(request, pk: int):
 #-----This section is about the Authentication------
 @api_view(["POST"])
 def register_user(request):
-    user_serializer = UserRegistrationSerializer(data=request.data)
-    if user_serializer.is_valid():
-        user_serializer.save()
-        return Response({
-            "message": "User registered successfully!",
-            "status": status.HTTP_200_OK
-        })
-    return Response(data=user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    if request.method == "POST":
+        user_serializer = UserRegistrationSerializer(data=request.data)
+        if user_serializer.is_valid():
+            user_serializer.save()
+            return Response({
+                "message": "User registered successfully!",
+                "status": status.HTTP_200_OK
+            })
+        return Response(data=user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+@api_view(["POST"])
+def login_user(request):
+    if request.method == "POST":
+        pass
