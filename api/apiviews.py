@@ -1,5 +1,6 @@
 from api.models import Movies
 from django.contrib.auth import login, logout
+from django.contrib.auth.models import User
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
@@ -128,7 +129,6 @@ def delete_movie(request, pk: int):
 
 #-----This section is about the Authentication------
 @api_view(["POST"])
-@permission_classes(AllowAny)
 def register_user(request):
     user_serializer = UserRegistrationSerializer(data=request.data)
     if user_serializer.is_valid():
