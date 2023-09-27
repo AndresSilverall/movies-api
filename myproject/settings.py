@@ -78,6 +78,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
+#AUTH_USER_MODEL = 'api.CustomUser'
 
 SWAGGER_SETTINGS = {
     'USE_SESSION_AUTH': False,  # Deshabilita la autenticación basada en sesiones
@@ -86,6 +87,12 @@ SWAGGER_SETTINGS = {
     'api_path': '/',  # Ruta base para Swagger
 }
 
+
+REST_FRAMEWORK = {
+   
+   'DEFAULT_PERMISSION_CLASSES': ( 'rest_framework.permissions.IsAdminUser', ),
+
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
