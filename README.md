@@ -45,9 +45,9 @@ migrate = "python manage.py migrate"
 - Migrar modelos `pipenv run migrate`
 
 
-### documentación de la API REST
+## documentación de la API REST
 
-## Métodos HTTP establecidos 
+### Métodos HTTP establecidos para los endpoints
 
 <table style="border-collapse: collapse; width: 100%;">
   <tr>
@@ -55,19 +55,19 @@ migrate = "python manage.py migrate"
     <td style="border: 1px solid black;">Descripción </td>
   </tr>
   <tr>
-    <td style="border: 1px solid black;">`GET`</td>
+    <td style="border: 1px solid black;"><code>GET</code></td>
     <td style="border: 1px solid black;">Obtener todas las películas almacenadas en la DB.</td>
   </tr>
   <tr>
-    <td style="border: 1px solid black;">`POST`</td>
+    <td style="border: 1px solid black;"><code>POST</code></td>
     <td style="border: 1px solid black;">Agregar una nueva película a la DB.</td>
   </tr>
   <tr>
-    <td style="border: 1px solid black;">`PUT`</td>
-    <td style="border: 1px solid black;">Actualizar los detalles de una película</td>
+    <td style="border: 1px solid black;"></code>PUT</code></td>
+    <td style="border: 1px solid black;">Actualizar los detalles de una película.</td>
   </tr>
   <tr>
-    <td style="border: 1px solid black;">`DELETE`</td>
-    <td style="border: 1px solid black;">Eliminar una película con la ID (Primary key)</td>
+    <td style="border: 1px solid black;"><code>DELETE</code></td>
+    <td style="border: 1px solid black;">Eliminar una película con la ID (Primary key).</td>
   </tr>
  
