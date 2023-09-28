@@ -1,7 +1,23 @@
 from django.urls import path
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+from rest_framework import permissions
 from rest_framework.urlpatterns import format_suffix_patterns
 from . import apiviews
 
+
+schema_view = get_schema_view(
+   openapi.Info(
+      title="Movie API REST",
+      default_version='v1',
+      description="This API REST allow the user to get, add, delete and update his movies, also allow the user to register, login and logout ",
+      terms_of_service="https://github.com/AndresSilverall",
+      contact=openapi.Contact(email="andresfsilverall0109@gmail.com"),
+      license=openapi.License(name="MIT license"),
+   ),
+   public=True,
+   permission_classes=(permissions.AllowAny,),
+)
 
 urlpatterns = [
 
@@ -15,9 +31,9 @@ urlpatterns = [
     path('api/delete/movie/<int:pk>', apiviews.delete_movie, name='delete_movie'),
 
     #Documentation with Swagger: endpoints
-    #path('docs/', schema_view, name='docs'),
+    path('api/doc/', schema_view.with_ui('swagger', cache_timeout=0), name='apidoc'),
 ]
 
 
 #suffix
-urlpatterns = format_suffix_patterns(urlpatterns)
+#urlpatterns = format_suffix_patterns(urlpatterns)

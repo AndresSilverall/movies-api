@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     #dependencies
     'rest_framework',
     'drf_yasg',
-    'rest_framework_swagger',
 
     #myapps
     'api',
@@ -89,6 +88,12 @@ SWAGGER_SETTINGS = {
 
 
 
+TEMPLATE_LOADERS = (
+'django.template.loaders.eggs.Loader',
+
+)
+
+
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -103,6 +108,7 @@ DATABASES = {
 REST_FRAMEWORK = {
    
    'DEFAULT_PERMISSION_CLASSES': ( 'rest_framework.permissions.IsAuthenticated', ),
+
    
 }
 

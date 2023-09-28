@@ -51,6 +51,7 @@ def get_movie_detail(request, pk: int):
 
 
 @api_view(["POST"])
+@permission_classes([IsAuthenticated])
 def add_movie(request):
     """
     The user can store a new movie on the DB.
