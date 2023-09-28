@@ -1,5 +1,5 @@
 from api.models import Movies
-from django.contrib.auth import login, logout
+from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
@@ -72,7 +72,6 @@ def add_movie(request):
 
 
 
-
 @api_view(["PUT"])
 def update_movie(request, pk: int):
     """
@@ -130,6 +129,14 @@ def delete_movie(request, pk: int):
 #-----This section is about the Authentication------
 @api_view(["POST"])
 def register_user(request):
+    """
+    Register an user
+
+    Args: Username, Email and password.
+
+    Returns: A message with the user registered!
+
+    """
     if request.method == "POST":
         user_serializer = UserRegistrationSerializer(data=request.data)
         if user_serializer.is_valid():
@@ -143,6 +150,26 @@ def register_user(request):
 
 
 @api_view(["POST"])
+#@permission_classes(AllowAny)
 def login_user(request):
     if request.method == "POST":
-        pass
+        username = request.data.get("username")
+        password = request.data.get("password")
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user=user)
+            return Response({
+                "message": "User logged",
+                "status": status.HTTP_200_OK
+            })
+        return Response({
+            "message": "Authentication error",
+            "status": status.HTTP_401_UNAUTHORIZED
+        })
+
+
+@api_view(["POST"])
+def logout_user(request):
+    if request.method == "POST":
+        logout(request)
+        return Response(status=status.HTTP_200_OK)

@@ -6,6 +6,7 @@ from . import apiviews
 urlpatterns = [
 
     path('api/register/', apiviews.register_user, name='register'),
+    path('api/login/', apiviews.login_user, name='login'),
     path('api/movies/', apiviews.get_all_movies, name='get_all_movies'),
     path('api/movie/detail/<int:pk>', apiviews.get_movie_detail, name='get_movie_detail'),
     path('api/add/movie/', apiviews.add_movie, name='add_movie'),
