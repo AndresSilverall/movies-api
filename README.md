@@ -45,7 +45,8 @@ migrate = "python manage.py migrate"
 - Migrar modelos `pipenv run migrate`
 
 
-## documentación de la API REST
+
+## Documentación de la API REST
 
 ### Métodos HTTP establecidos para los endpoints
 
@@ -63,7 +64,7 @@ migrate = "python manage.py migrate"
     <td style="border: 1px solid black;">Agregar una nueva película a la DB.</td>
   </tr>
   <tr>
-    <td style="border: 1px solid black;"></code>PUT</code></td>
+    <td style="border: 1px solid black;"><code>PUT</code></td>
     <td style="border: 1px solid black;">Actualizar los detalles de una película.</td>
   </tr>
   <tr>
