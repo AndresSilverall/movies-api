@@ -29,7 +29,7 @@ def get_movie_detail(request, pk: int):
     """
     Args: The primary key of the model 'Movies'.
     
-    Example: 'api/movie-detail/2'
+    Example: 'api/movie/detail/2'
 
     Returns: The movie details like title, description, director,
     writer, year.
@@ -54,7 +54,7 @@ def add_movie(request):
     """
     The user can store a new movie on the DB.
 
-    Example: 'api/add-movie/'
+    Example: 'api/add/movie/'
 
     Returns: A message with the new movie added.
 
@@ -80,7 +80,7 @@ def update_movie(request, pk: int):
 
     Args: The primary key of the model 'Movies'.
 
-    Example: 'api/update-movie/id'
+    Example: 'api/update/movie/id'
 
     Returns: A message with the movie updated.
 
@@ -105,7 +105,7 @@ def delete_movie(request, pk: int):
     """
     Args: The primary key of the model 'Movies'.
 
-    Example: 'api/delete-movie/4'
+    Example: 'api/delete/movie/id'
 
     Returns: A message with the movie deleted.
 
