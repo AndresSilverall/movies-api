@@ -1,6 +1,6 @@
 ## Movies API REST
 
-API basada en la arquitectura REST, la cual permitirá listar diferentes películas, agregar reseñas y almacenar las películas favoritas del usuario. La API cuenta con un sistema de autenticación (Registro, login y logout) y otorga diferentes permisos a los usuarios para acceder a los endpoints, desarrollada con Django Rest Framework.
+API basada en la arquitectura REST, la cual permitirá listar diferentes películas, agregar reseñas y almacenar las películas favoritas del usuario. La API cuenta con un sistema de autenticación (Registro, login, logout y restablecimiento de contraseñas) y otorga diferentes permisos a los usuarios para acceder a los endpoints, desarrollada con Django Rest Framework.
 
 
 ## Tecnologías usadas
@@ -45,30 +45,29 @@ migrate = "python manage.py migrate"
 - Migrar modelos `pipenv run migrate`
 
 
-## documentación de la API REST
+### documentación de la API REST
+
+## Métodos HTTP establecidos 
 
 <table style="border-collapse: collapse; width: 100%;">
   <tr>
-    <td style="border: 1px solid black;">Metodo</td>
-    <td style="border: 1px solid black;">Descripcion</td>
+    <td style="border: 1px solid black;">Método</td>
+    <td style="border: 1px solid black;">Descripción </td>
   </tr>
   <tr>
-    <td style="border: 1px solid black;">Fila 1, C1</td>
-    <td style="border: 1px solid black;">Fila 1, C2</td>
+    <td style="border: 1px solid black;">`GET`</td>
+    <td style="border: 1px solid black;">Obtener todas las películas almacenadas en la DB.</td>
   </tr>
   <tr>
-    <td style="border: 1px solid black;">Fila 2, C1</td>
-    <td style="border: 1px solid black;">Fila 2, C2</td>
+    <td style="border: 1px solid black;">`POST`</td>
+    <td style="border: 1px solid black;">Agregar una nueva película a la DB.</td>
   </tr>
   <tr>
-    <td style="border: 1px solid black;">Fila 3, C1</td>
-    <td style="border: 1px solid black;">Fila 3, C2</td>
+    <td style="border: 1px solid black;">`PUT`</td>
+    <td style="border: 1px solid black;">Actualizar los detalles de una película</td>
   </tr>
   <tr>
-    <td style="border: 1px solid black;">Fila 4, C1</td>
-    <td style="border: 1px solid black;">Fila 4, C2</td>
+    <td style="border: 1px solid black;">`DELETE`</td>
+    <td style="border: 1px solid black;">Eliminar una película con la ID (Primary key)</td>
   </tr>
-  <tr>
-    <td style="border: 1px solid black;">Fila 5, C1</td>
-    <td style="border: 1px solid black;">Fila 5, C2</td>
-  </tr>
+ 
