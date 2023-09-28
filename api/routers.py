@@ -10,7 +10,7 @@ schema_view = get_schema_view(
    openapi.Info(
       title="Movie API REST",
       default_version='v1',
-      description="This API REST allow the user to get, add, delete and update his movies, also allow the user to register, login and logout ",
+      description="This API REST allow the user to get, add, delete and update his movies, also allow the user to register, login and logout.",
       terms_of_service="https://github.com/AndresSilverall",
       contact=openapi.Contact(email="andresfsilverall0109@gmail.com"),
       license=openapi.License(name="MIT license"),
@@ -18,6 +18,7 @@ schema_view = get_schema_view(
    public=True,
    permission_classes=(permissions.AllowAny,),
 )
+
 
 urlpatterns = [
 
