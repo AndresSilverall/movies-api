@@ -9,6 +9,7 @@ from api.serializers import MovieSerializer, UserRegistrationSerializer
 
 
 @api_view(["GET"])
+@permission_classes([AllowAny])
 def get_all_movies(request, format=None):
     """
     The user make a request to get all the resources stored on the DB.
@@ -25,6 +26,7 @@ def get_all_movies(request, format=None):
     
 
 @api_view(["GET"])
+@permission_classes([AllowAny])
 def get_movie_detail(request, pk: int):
     """
     Args: The primary key of the model 'Movies'.
@@ -46,7 +48,6 @@ def get_movie_detail(request, pk: int):
                 "message": "Movie not found!",
                 "status": status.HTTP_404_NOT_FOUND
             })
-
 
 
 @api_view(["POST"])
@@ -73,6 +74,7 @@ def add_movie(request):
 
 
 @api_view(["PUT"])
+@permission_classes([IsAuthenticated])
 def update_movie(request, pk: int):
     """
     Update movie.
@@ -98,8 +100,8 @@ def update_movie(request, pk: int):
                 return Response(data=movie_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-
 @api_view(["DELETE"])
+@permission_classes([IsAuthenticated])
 def delete_movie(request, pk: int):
     """
     Args: The primary key of the model 'Movies'.
@@ -126,8 +128,9 @@ def delete_movie(request, pk: int):
         })
 
 
-#-----This section is about the Authentication------
+#>>>>-----This section is about the user authentication------<<<<
 @api_view(["POST"])
+@permission_classes([AllowAny])
 def register_user(request):
     """
     Register an user
@@ -148,9 +151,8 @@ def register_user(request):
         return Response(data=user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-
 @api_view(["POST"])
-#@permission_classes(AllowAny)
+@permission_classes([AllowAny])
 def login_user(request):
     if request.method == "POST":
         username = request.data.get("username")
@@ -169,6 +171,7 @@ def login_user(request):
 
 
 @api_view(["POST"])
+@permission_classes([IsAuthenticated])
 def logout_user(request):
     if request.method == "POST":
         logout(request)
