@@ -1,6 +1,6 @@
 ## Movies API REST
 
-API basada en la arquitectura REST, la cual permitirá listar diferentes películas, agregar reseñas y almacenar las películas favoritas del usuario. La API cuenta con un sistema de autenticación (Registro, login, logout y restablecimiento de contraseñas) y otorga diferentes permisos a los usuarios para acceder a los endpoints, desarrollada con Django Rest Framework.
+API basada en la arquitectura REST, la cual permite listar diferentes películas, agregar reseñas y almacenar las películas favoritas del usuario. La API cuenta con un sistema de autenticación (Registro, login, logout y restablecimiento de contraseñas), además otorga diferentes permisos a los usuarios para acceder a los endpoints, desarrollada con Django Rest Framework.
 
 
 ## Tecnologías usadas
@@ -15,7 +15,7 @@ API basada en la arquitectura REST, la cual permitirá listar diferentes pelícu
 
 1. Clona este repositorio: `https://github.com/AndresSilverall/movies-api.git`
 2. Navega a la carpeta del proyecto: `cd movies-api`
-3. Ejecuta un entorno virtual de Python para la ejecución de la App
+3. Ejecuta un entorno virtual de Python para la ejecución de la API
 
 
 ### Instalar un entorno virtual en Python 
