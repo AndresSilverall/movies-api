@@ -185,16 +185,36 @@ def favorite_movie(request):
     return Response(data=favorite_movie_serializer.data, status=status.HTTP_200_OK)
 
 
-@api_view(["GET"])
-def review_movie(request):
-    movie = ReviewMovie.objects.all()
-    review_movie_serializer = ReviewMovieSerializer(instance=movie, many=True)
-    return Response(data=review_movie_serializer.data, status=status.HTTP_200_OK)
-
-
 @api_view(["POST"])
 @permission_classes([IsAuthenticated])
-def logout_user(request):
+def review_movie(request):
     if request.method == "POST":
+        review_movie_serializer = ReviewMovieSerializer(data=request.data)
+        if review_movie_serializer.is_valid():
+            review_movie_serializer.save()
+            return Response(data=review_movie_serializer.data, status=status.HTTP_200_OK)
+        
+        return Response({
+            "message": review_movie_serializer.errors,
+            "status": status.HTTP_400_BAD_REQUEST
+        })
+
+
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def get_movie_review(request):
+    movie = ReviewMovie.objects.all()
+    if request.method == "GET":
+        movie_review_serializer = ReviewMovieSerializer(instance=movie, many=True)
+        return Response(data=movie_review_serializer.data, status=status.HTTP_200_OK)
+
+
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def logout_user(request):
+    if request.method == "GET":
         logout(request)
-        return Response(status=status.HTTP_200_OK)
+        return Response({
+            "message": "Session closed!",
+            "status": status.HTTP_200_OK
+        })

@@ -9,19 +9,43 @@ class Movie(models.Model):
         blank=False, 
         unique=True)
     
-    description = models.TextField(null=False)
-    genre = models.CharField(max_length=20, null=True)
-    image = models.ImageField(upload_to="movies/", null=True)
-    director = models.CharField(max_length=30, null=False)
-    writer = models.CharField(max_length=30, null=False)
-    year = models.PositiveIntegerField(null=False)
+    description = models.TextField(
+            null=False
+    )
+
+    genre = models.CharField(
+        max_length=20, 
+        null=True
+    )
+
+    image = models.ImageField(
+        upload_to="movies/", 
+        null=True
+    )
+
+    director = models.CharField(
+        max_length=30, 
+        null=False
+    )
+
+    writer = models.CharField(
+        max_length=30, 
+        null=False
+    )
+
+    year = models.PositiveIntegerField(
+        null=False
+    )
 
     def __str__(self):
         return self.title
     
 
 class FavoriteMovie(models.Model):
-    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    movie = models.ForeignKey(
+        Movie, 
+        on_delete=models.CASCADE
+    )
 
     def __str__(self):
         return str(self.movie)
@@ -42,10 +66,22 @@ class ReviewMovie(models.Model):
         NINE = "9", "nine"
         TEN = "10", "ten"
     
-    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
-    score = models.CharField(choices=ScoreMovie.choices, null=True, max_length=6)
-    review = models.TextField(verbose_name="review movie", null=True)
+    movie = models.ForeignKey(
+        Movie, 
+        on_delete=models.CASCADE, 
+        related_name="reviews"
+    )
+    
+    score = models.CharField(
+        choices=ScoreMovie.choices, 
+        null=True, 
+        max_length=6
+    )
 
+    review = models.TextField(
+        verbose_name="review movie", 
+        null=True
+    )
 
     def __str__(self):
         return str(self.movie)
