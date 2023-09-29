@@ -48,7 +48,7 @@ class FavoriteMovie(models.Model):
     )
 
     def __str__(self):
-        return str(self.movie)
+        return str(self.movie.title)
 
 
 class ReviewMovie(models.Model):

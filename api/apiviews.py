@@ -212,6 +212,10 @@ def review_movie(request):
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
 def get_movie_review(request):
+    """
+    Get all the movie reviews.
+
+    """
     movie = ReviewMovie.objects.all()
     if request.method == "GET":
         movie_review_serializer = ReviewMovieSerializer(instance=movie, many=True)
