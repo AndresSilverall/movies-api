@@ -1,4 +1,4 @@
-from api.models import Movies, FavoriteMovie, ReviewMovie
+from api.models import Movie, FavoriteMovie, ReviewMovie
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
 from rest_framework import status
@@ -20,13 +20,13 @@ def get_all_movies(request, format=None):
     """
     The user make a request to get all the resources stored on the DB.
 
-    Example: 'api/movies/'
+    Example: api/movies/
 
     Returns: All the movies. 
 
     """
     if request.method == "GET":
-        movie = Movies.objects.all()
+        movie = Movie.objects.all()
         movie_serializer = MovieSerializer(movie, many=True, context={'request': request})
         return Response(data=movie_serializer.data, status=status.HTTP_200_OK)
     
@@ -37,14 +37,14 @@ def get_movie_detail(request, pk: int):
     """
     Args: The primary key of the model 'Movies'.
     
-    Example: 'api/movie/detail/2'
+    Example: api/movie/detail/2
 
     Returns: The movie details like title, description, director,
     writer, year.
 
     """
     if request.method == "GET":
-        movie = Movies.objects.filter(id=pk).first()
+        movie = Movie.objects.filter(id=pk).first()
         if movie is not None:
             movie_serializer = MovieSerializer(movie, many=False, context={'request': request})
 
@@ -62,9 +62,9 @@ def add_movie(request):
     """
     The user can store a new movie on the DB.
 
-    Example: 'api/add/movie/'
+    Example: api/add/movie/
 
-    Returns: A message with the new movie added.
+    Returns: A message success.
 
     """
     if request.method == "POST":
@@ -88,13 +88,13 @@ def update_movie(request, pk: int):
 
     Args: The primary key of the model 'Movies'.
 
-    Example: 'api/update/movie/id'
+    Example: api/update/movie/id
 
-    Returns: A message with the movie updated.
+    Returns: A message success.
 
     """
     if request.method == "PUT":
-        movie = Movies.objects.filter(id=pk).first()
+        movie = Movie.objects.filter(id=pk).first()
         if movie is not None:
             movie_serializer = MovieSerializer(movie, data=request.data)
             if movie_serializer.is_valid():
@@ -113,13 +113,13 @@ def delete_movie(request, pk: int):
     """
     Args: The primary key of the model 'Movies'.
 
-    Example: 'api/delete/movie/id'
+    Example: api/delete/movie/id
 
     Returns: A message with the movie deleted.
 
     """
     try:
-        movie = Movies.objects.filter(id=pk)
+        movie = Movie.objects.filter(id=pk)
                 
         if request.method == "DELETE":
             movie.delete()
@@ -128,7 +128,7 @@ def delete_movie(request, pk: int):
                 "status": status.HTTP_200_OK
             })
         
-    except Movies.DoesNotExist as e:
+    except Movie.DoesNotExist as e:
         return Response({
             "message": "Error, movie not found!",
             "status": str(e)
@@ -144,7 +144,7 @@ def register_user(request):
 
     Args: Username, Email and password.
 
-    Returns: A message with the user registered!
+    Returns: A message success.
 
     """
     if request.method == "POST":

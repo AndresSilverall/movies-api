@@ -1,13 +1,13 @@
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
-from api.models import Movies, FavoriteMovie, ReviewMovie
+from api.models import Movie, FavoriteMovie, ReviewMovie
 from rest_framework import serializers
 
 
 class MovieSerializer(serializers.ModelSerializer):
     image = serializers.SerializerMethodField('get_url_img')
     class Meta:
-        model = Movies
+        model = Movie
         fields = (
             "id", 
             "title", 
