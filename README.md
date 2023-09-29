@@ -37,12 +37,14 @@ API basada en la arquitectura REST, la cual permite listar diferentes películas
 server = "python manage.py runserver 127.0.0.1:8000"
 make = "python manage.py makemigrations"
 migrate = "python manage.py migrate"
+test = "python manage.py test"
 
 ```
 
 - Ejecutar servidor `pipenv run server`
 - Realizar migraciones de los modelos `pipenv run make`
 - Migrar modelos `pipenv run migrate`
+- Ejecutar pruebas de software con Unit testing `pipenv run test`
 
 
 
