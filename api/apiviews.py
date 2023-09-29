@@ -1,4 +1,4 @@
-from api.models import Movies, FavoriteMovie
+from api.models import Movies, FavoriteMovie, ReviewMovie
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
 from rest_framework import status
@@ -8,7 +8,8 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from api.serializers import (
     MovieSerializer, 
     UserRegistrationSerializer, 
-    FavoriteMovieSerializer
+    FavoriteMovieSerializer,
+    ReviewMovieSerializer
     
     )
 
@@ -182,6 +183,13 @@ def favorite_movie(request):
     movie = FavoriteMovie.objects.all()
     favorite_movie_serializer = FavoriteMovieSerializer(instance=movie, many=True)
     return Response(data=favorite_movie_serializer.data, status=status.HTTP_200_OK)
+
+
+@api_view(["GET"])
+def review_movie(request):
+    movie = ReviewMovie.objects.all()
+    review_movie_serializer = ReviewMovieSerializer(instance=movie, many=True)
+    return Response(data=review_movie_serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(["POST"])

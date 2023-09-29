@@ -48,3 +48,9 @@ class FavoriteMovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = FavoriteMovie
         fields = ("id", "movie")
+
+
+class ReviewMovieSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ReviewMovie
+        fields = "__all__"
