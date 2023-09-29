@@ -10,18 +10,17 @@ class Movies(models.Model):
         unique=True)
     
     description = models.TextField(null=False)
-    #genre = models.CharField(max_length=20, null=False)
-    #simage = models.ImageField(upload_to="media/movies", null=True)
+    genre = models.CharField(max_length=20, null=True)
+    image = models.ImageField(upload_to="media/movies", null=True)
     director = models.CharField(max_length=30, null=False)
     writer = models.CharField(max_length=30, null=False)
     year = models.PositiveIntegerField(null=False)
-
 
     def __str__(self):
         return self.title
     
 
-"""class FavoriteMovie(models.Model):
+class FavoriteMovie(models.Model):
     movie = models.ForeignKey(Movies, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -49,4 +48,4 @@ class ReviewMovie(models.Model):
 
 
     def __str__(self):
-        return self.score"""
+        return self.score

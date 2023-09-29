@@ -57,11 +57,15 @@ migrate = "python manage.py migrate"
   </tr>
   <tr>
     <td style="border: 1px solid black;"><code>GET</code></td>
-    <td style="border: 1px solid black;">Obtener todas las películas almacenadas en la DB.</td>
+    <td style="border: 1px solid black;">Obtener todas las películas almacenadas en la BD.</td>
   </tr>
   <tr>
     <td style="border: 1px solid black;"><code>POST</code></td>
-    <td style="border: 1px solid black;">Agregar una nueva película a la DB.</td>
+    <td style="border: 1px solid black;">Agregar una nueva película a la BD.</td>
+    <td style="border: 1px solid black;"><code>POST</code></td>
+    <td style="border: 1px solid black;">Registro de usuario.</td>
+    <td style="border: 1px solid black;"><code>POST</code></td>
+    <td style="border: 1px solid black;">Login de usuario.</td>
   </tr>
   <tr>
     <td style="border: 1px solid black;"><code>PUT</code></td>
