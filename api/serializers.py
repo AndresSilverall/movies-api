@@ -54,3 +54,8 @@ class ReviewMovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = ReviewMovie
         fields = ("score", "review", "movie")
+
+
+class ChangePasswordSerializer(serializers.Serializer):
+    old_password = serializers.CharField(required=True)
+    new_password = serializers.CharField(required=True)

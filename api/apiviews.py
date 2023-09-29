@@ -9,7 +9,8 @@ from api.serializers import (
     MovieSerializer, 
     UserRegistrationSerializer, 
     FavoriteMovieSerializer,
-    ReviewMovieSerializer
+    ReviewMovieSerializer,
+    ChangePasswordSerializer
     
     )
 
@@ -163,7 +164,7 @@ def register_user(request):
 def login_user(request):
     """
     The user can access to the different resources once authenticated.
-    
+
     """
     if request.method == "POST":
         username = request.data.get("username")
@@ -192,6 +193,10 @@ def favorite_movie(request):
 @api_view(["POST"])
 @permission_classes([IsAuthenticated])
 def review_movie(request):
+    """
+    The user can add reviews to the different movies.
+
+    """
     if request.method == "POST":
         review_movie_serializer = ReviewMovieSerializer(data=request.data)
         if review_movie_serializer.is_valid():
@@ -212,6 +217,28 @@ def get_movie_review(request):
         movie_review_serializer = ReviewMovieSerializer(instance=movie, many=True)
         return Response(data=movie_review_serializer.data, status=status.HTTP_200_OK)
 
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def change_password(request):
+    if request.method == 'POST':
+        serializer = ChangePasswordSerializer(data=request.data)
+        if serializer.is_valid():
+            user = request.user
+            if user.check_password(serializer.data.get('old_password')):
+                user.set_password(serializer.data.get('new_password'))
+                user.save()
+                return Response({
+                    'message': 'Password changed successfully.'
+                }, status=status.HTTP_200_OK)
+            
+            return Response({
+                'error': 'Incorrect old password.'
+            }, status=status.HTTP_400_BAD_REQUEST)
+        
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
 
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])

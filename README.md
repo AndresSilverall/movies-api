@@ -73,7 +73,7 @@ migrate = "python manage.py migrate"
   </tr>
     <tr>
     <td style="border: 1px solid black;"><code>POST</code></td>
-    <td style="border: 1px solid black;">Agregar reseña a diferentes película.</td>
+    <td style="border: 1px solid black;">Agregar reseñas a diferentes películas.</td>
   </tr>
       <tr>
     <td style="border: 1px solid black;"><code>POST</code></td>
