@@ -60,8 +60,24 @@ migrate = "python manage.py migrate"
     <td style="border: 1px solid black;">Obtener todas las películas almacenadas en la BD.</td>
   </tr>
   <tr>
+    <td style="border: 1px solid black;"><code>GET</code></td>
+    <td style="border: 1px solid black;">Obtener detalles de una película.</td>
+  </tr>
+    <tr>
+    <td style="border: 1px solid black;"><code>GET</code></td>
+    <td style="border: 1px solid black;">Obtener las reseñas de las películas.</td>
+  </tr>
+  <tr>
     <td style="border: 1px solid black;"><code>POST</code></td>
     <td style="border: 1px solid black;">Agregar una nueva película a la BD.</td>
+  </tr>
+    <tr>
+    <td style="border: 1px solid black;"><code>POST</code></td>
+    <td style="border: 1px solid black;">Agregar reseña a diferentes película.</td>
+  </tr>
+      <tr>
+    <td style="border: 1px solid black;"><code>POST</code></td>
+    <td style="border: 1px solid black;">Agregar película favorita.</td>
   </tr>
   <tr>
     <td style="border: 1px solid black;"><code>POST</code></td>

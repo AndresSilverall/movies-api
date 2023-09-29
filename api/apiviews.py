@@ -161,6 +161,10 @@ def register_user(request):
 @api_view(["POST"])
 @permission_classes([AllowAny])
 def login_user(request):
+    """
+    The user can access to the different resources once authenticated.
+    
+    """
     if request.method == "POST":
         username = request.data.get("username")
         password = request.data.get("password")
