@@ -1,11 +1,16 @@
-from api.models import Movies
+from api.models import Movies, FavoriteMovie
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
-from api.serializers import MovieSerializer, UserRegistrationSerializer
+from api.serializers import (
+    MovieSerializer, 
+    UserRegistrationSerializer, 
+    FavoriteMovieSerializer
+    
+    )
 
 
 @api_view(["GET"])
@@ -40,7 +45,7 @@ def get_movie_detail(request, pk: int):
     if request.method == "GET":
         movie = Movies.objects.filter(id=pk).first()
         if movie is not None:
-            movie_serializer = MovieSerializer(movie, many=False)
+            movie_serializer = MovieSerializer(movie, many=False, context={'request': request})
 
             return Response(data=movie_serializer.data, status=status.HTTP_200_OK)
         else:
@@ -169,6 +174,14 @@ def login_user(request):
             "message": "Authentication error",
             "status": status.HTTP_401_UNAUTHORIZED
         })
+
+
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def favorite_movie(request):
+    movie = FavoriteMovie.objects.all()
+    favorite_movie_serializer = FavoriteMovieSerializer(instance=movie, many=True)
+    return Response(data=favorite_movie_serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(["POST"])

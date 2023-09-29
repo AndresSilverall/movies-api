@@ -24,7 +24,7 @@ class FavoriteMovie(models.Model):
     movie = models.ForeignKey(Movies, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.movie
+        return str(self.movie)
 
 
 class ReviewMovie(models.Model):

@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
-from api.models import Movies
+from api.models import Movies, FavoriteMovie, ReviewMovie
 from rest_framework import serializers
 
 
@@ -18,6 +18,7 @@ class MovieSerializer(serializers.ModelSerializer):
             "writer", 
             "year"
         )
+        read_only_fields = ('image',)
 
     def get_url_img(self, obj):
         request = self.context.get("request")
@@ -42,9 +43,8 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         )
         return user
 
-{
-    "username": "pipepk12",
-    "email": "pipepk12@gmail.com",
-    "password": 3017454086
 
-}
+class FavoriteMovieSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FavoriteMovie
+        fields = ("id", "movie")
