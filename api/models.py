@@ -4,14 +4,14 @@ from django.db import models
 # Create your models here.
 class Movies(models.Model):
     title = models.CharField(
-        max_length=25, 
+        max_length=60, 
         null=False, 
         blank=False, 
         unique=True)
     
     description = models.TextField(null=False)
     genre = models.CharField(max_length=20, null=True)
-    image = models.ImageField(upload_to="media/movies", null=True)
+    image = models.ImageField(upload_to="movies/", null=True)
     director = models.CharField(max_length=30, null=False)
     writer = models.CharField(max_length=30, null=False)
     year = models.PositiveIntegerField(null=False)

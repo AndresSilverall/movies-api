@@ -5,16 +5,26 @@ from rest_framework import serializers
 
 
 class MovieSerializer(serializers.ModelSerializer):
+    image = serializers.SerializerMethodField('get_url_img')
     class Meta:
         model = Movies
         fields = (
             "id", 
             "title", 
             "description", 
-            "director", 
+            "director",
+            "genre",
+            "image",
             "writer", 
             "year"
         )
+
+    def get_url_img(self, obj):
+        request = self.context.get("request")
+        if request:
+            return request.build_absolute_uri(obj.image.url)
+        return None  
+
 
 
 class UserRegistrationSerializer(serializers.ModelSerializer):

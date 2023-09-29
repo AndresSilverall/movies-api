@@ -21,7 +21,7 @@ def get_all_movies(request, format=None):
     """
     if request.method == "GET":
         movie = Movies.objects.all()
-        movie_serializer = MovieSerializer(movie, many=True)
+        movie_serializer = MovieSerializer(movie, many=True, context={'request': request})
         return Response(data=movie_serializer.data, status=status.HTTP_200_OK)
     
 
