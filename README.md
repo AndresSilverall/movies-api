@@ -87,6 +87,14 @@ migrate = "python manage.py migrate"
     <td style="border: 1px solid black;"><code>POST</code></td>
     <td style="border: 1px solid black;">Login de usuario.</td>
   </tr>
+    <tr>
+    <td style="border: 1px solid black;"><code>POST</code></td>
+    <td style="border: 1px solid black;">Cambiar contraseña.</td>
+  </tr>
+      <tr>
+    <td style="border: 1px solid black;"><code>POST</code></td>
+    <td style="border: 1px solid black;">Cerrar sesión.</td>
+  </tr>
   <tr>
     <td style="border: 1px solid black;"><code>PUT</code></td>
     <td style="border: 1px solid black;">Actualizar los detalles de una película.</td>

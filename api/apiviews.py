@@ -240,10 +240,10 @@ def change_password(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 
-@api_view(["GET"])
+@api_view(["POST"])
 @permission_classes([IsAuthenticated])
 def logout_user(request):
-    if request.method == "GET":
+    if request.method == "POST":
         logout(request)
         return Response({
             "message": "Session closed!",
