@@ -62,8 +62,12 @@ migrate = "python manage.py migrate"
   <tr>
     <td style="border: 1px solid black;"><code>POST</code></td>
     <td style="border: 1px solid black;">Agregar una nueva película a la BD.</td>
+  </tr>
+  <tr>
     <td style="border: 1px solid black;"><code>POST</code></td>
     <td style="border: 1px solid black;">Registro de usuario.</td>
+  </tr>
+  <tr>
     <td style="border: 1px solid black;"><code>POST</code></td>
     <td style="border: 1px solid black;">Login de usuario.</td>
   </tr>
