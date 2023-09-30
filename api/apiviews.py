@@ -223,7 +223,6 @@ def get_movie_review(request):
         return Response(data=movie_review_serializer.data, status=status.HTTP_200_OK)
 
 
-
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def change_password(request):

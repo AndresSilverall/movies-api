@@ -66,15 +66,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
-#AUTH_USER_MODEL = 'api.CustomUser'
 
 SWAGGER_SETTINGS = {
-    'USE_SESSION_AUTH': False,  # Deshabilita la autenticación basada en sesiones
-    'api_version': '1.0',  # Versión de tu API
-    'enabled_methods': ['get', 'post', 'put', 'patch', 'delete'],  # Métodos HTTP permitidos
-    'api_path': '/',  # Ruta base para Swagger
+    'USE_SESSION_AUTH': True,  # Deshabilita la autenticación basada en sesiones
+    'api_version': '1.0', 
+    'enabled_methods': ['get', 'post', 'put', 'patch', 'delete'],  
+    'api_path': '/', 
 }
-
 
 
 TEMPLATE_LOADERS = (
@@ -100,6 +98,11 @@ REST_FRAMEWORK = {
 
    
 }
+
+DEFAULT_AUTHENTICATION_CLASSES: [
+    # 'rest_framework.authentication.SessionAuthentication',
+    'rest_framework.authentication.BasicAuthentication',
+]
 
 
 # Password validation

@@ -111,37 +111,38 @@ La Documentación de la API se implementó con Swagger, para acceder a la docume
 
  ## Demo de la API desde Swagger
 
- ### Obtener todas las películas almacenadas en la BD
+ #### Obtener todas las películas almacenadas en la BD
  
  Endpoint: `/api/movies/`
 
  ![get_all_movies](assets/get_all_movies.gif)
 
 
-### Obtener detalles de una película en específico
+#### Obtener detalles de una película en específico
 
-Endpoint: `api/movie/detail/6`
+Endpoint: `/api/movie/detail/6`
 
 ![get_movie_detail](assets/get_movie_detail.gif)
 
 
-### Agregar película (autenticación requerida)
+#### Agregar película (autenticación requerida)
 
-Endpoint: `api/add/movie/`
+Endpoint: `/api/add/movie/`
 
 ![add_movie](assets/add_movie.gif)
 
 
-### Eliminar una película en específico (autenticación requerida)
+#### Eliminar una película en específico (autenticación requerida)
 
-Endpoint: `api/delete/movie/2`
+Endpoint: `/api/delete/movie/2`
 
 #### Sin autenticación
 
 ![delete_movie](assets/delete_movie.gif)
 
+##### Con autenticación
 
-#### Con autenticación
+Endpoint: `/api/delete/movie/2`
 
 ![delete_movie_authenticated](assets/delete_movie_authenticated.gif)
 
