@@ -50,6 +50,9 @@ test = "python manage.py test"
 
 ## Documentación de la API REST
 
+La Documentación de la API se implementó con Swagger, para acceder a la documentación acceda al siguiente recurso: `/api/doc/` una vez levantado el servidor.
+
+
 ### Métodos HTTP establecidos para los endpoints
 
 <table style="border-collapse: collapse; width: 100%;">
@@ -105,4 +108,15 @@ test = "python manage.py test"
     <td style="border: 1px solid black;"><code>DELETE</code></td>
     <td style="border: 1px solid black;">Eliminar una película con la ID (Primary key).</td>
   </tr>
+ 
+
+ ## Demo de la API desde Swagger
+
+ ## Obtener todas las películas almacenadas en la BD.
+ 
+ Los recursos se obtienen a través del siguiente endpoint: `/api/movies/`
+ 
+ ![get_all_movies](assets/get_all_movies.gif)
+
+
  
