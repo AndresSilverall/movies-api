@@ -115,7 +115,7 @@ La Documentación de la API se implementó con Swagger, para acceder a la docume
  ## Obtener todas las películas almacenadas en la BD.
  
  Los recursos se obtienen a través del siguiente endpoint: `/api/movies/`
- 
+
  ![get_all_movies](assets/get_all_movies.gif)
 
 
