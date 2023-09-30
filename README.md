@@ -52,7 +52,6 @@ test = "python manage.py test"
 
 La Documentación de la API se implementó con Swagger, para acceder a la documentación acceda al siguiente recurso: `/api/doc/` una vez levantado el servidor.
 
-
 ### Métodos HTTP establecidos para los endpoints
 
 <table style="border-collapse: collapse; width: 100%;">
@@ -112,11 +111,39 @@ La Documentación de la API se implementó con Swagger, para acceder a la docume
 
  ## Demo de la API desde Swagger
 
- ## Obtener todas las películas almacenadas en la BD.
+ ### Obtener todas las películas almacenadas en la BD
  
- Los recursos se obtienen a través del siguiente endpoint: `/api/movies/`
+ Endpoint: `/api/movies/`
 
  ![get_all_movies](assets/get_all_movies.gif)
+
+
+### Obtener detalles de una película en específico
+
+Endpoint: `api/movie/detail/6`
+
+![get_movie_detail](assets/get_movie_detail.gif)
+
+
+### Agregar película (autenticación requerida)
+
+Endpoint: `api/add/movie/`
+
+![add_movie](assets/add_movie.gif)
+
+
+### Eliminar una película en específico (autenticación requerida)
+
+Endpoint: `api/delete/movie/2`
+
+#### Sin autenticación
+
+![delete_movie](assets/delete_movie.gif)
+
+
+#### Con autenticación
+
+![delete_movie_authenticated](assets/delete_movie_authenticated.gif)
 
 
  

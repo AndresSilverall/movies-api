@@ -1,7 +1,7 @@
 from api.models import Movie, FavoriteMovie, ReviewMovie
 from django.contrib.auth import login, logout, authenticate
-from django.contrib.auth.models import User
 from rest_framework import status
+from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
@@ -110,6 +110,7 @@ def update_movie(request, pk: int):
 
 @api_view(["DELETE"])
 @permission_classes([IsAuthenticated])
+@csrf_exempt
 def delete_movie(request, pk: int):
     """
     Args: The primary key of the model 'Movies'.
