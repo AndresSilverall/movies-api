@@ -52,61 +52,63 @@ test = "python manage.py test"
 
 La Documentación de la API se implementó con Swagger, para acceder a la documentación acceda al siguiente recurso: `/api/doc/` una vez levantado el servidor.
 
-### Métodos HTTP establecidos para los endpoints
+## Métodos HTTP establecidos para los endpoints
 
 <table style="border-collapse: collapse; width: 100%;">
-  <tr>
-    <td style="border: 1px solid black;">Método</td>
-    <td style="border: 1px solid black;">Descripción </td>
-  </tr>
-  <tr>
-    <td style="border: 1px solid black;"><code>GET</code></td>
-    <td style="border: 1px solid black;">Obtener todas las películas almacenadas en la BD.</td>
-  </tr>
-  <tr>
-    <td style="border: 1px solid black;"><code>GET</code></td>
-    <td style="border: 1px solid black;">Obtener detalles de una película.</td>
-  </tr>
     <tr>
-    <td style="border: 1px solid black;"><code>GET</code></td>
-    <td style="border: 1px solid black;">Obtener las reseñas de las películas.</td>
-  </tr>
-  <tr>
-    <td style="border: 1px solid black;"><code>POST</code></td>
-    <td style="border: 1px solid black;">Agregar una nueva película a la BD.</td>
-  </tr>
+      <td style="border: 1px solid black;">Método</td>
+      <td style="border: 1px solid black;">Descripción </td>
+    </tr>
     <tr>
-    <td style="border: 1px solid black;"><code>POST</code></td>
-    <td style="border: 1px solid black;">Agregar reseñas a diferentes películas.</td>
-  </tr>
+      <td style="border: 1px solid black;"><code>GET</code></td>
+      <td style="border: 1px solid black;">Obtener todas las películas almacenadas en la BD.</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black;"><code>GET</code></td>
+      <td style="border: 1px solid black;">Obtener detalles de una película.</td>
+    </tr>
       <tr>
-    <td style="border: 1px solid black;"><code>POST</code></td>
-    <td style="border: 1px solid black;">Agregar película favorita.</td>
-  </tr>
-  <tr>
-    <td style="border: 1px solid black;"><code>POST</code></td>
-    <td style="border: 1px solid black;">Registro de usuario.</td>
-  </tr>
-  <tr>
-    <td style="border: 1px solid black;"><code>POST</code></td>
-    <td style="border: 1px solid black;">Login de usuario.</td>
-  </tr>
+      <td style="border: 1px solid black;"><code>GET</code></td>
+      <td style="border: 1px solid black;">Obtener las reseñas de las películas.</td>
+    </tr>
     <tr>
-    <td style="border: 1px solid black;"><code>POST</code></td>
-    <td style="border: 1px solid black;">Cambiar contraseña.</td>
-  </tr>
+      <td style="border: 1px solid black;"><code>POST</code></td>
+      <td style="border: 1px solid black;">Agregar una nueva película a la BD.</td>
+    </tr>
       <tr>
-    <td style="border: 1px solid black;"><code>POST</code></td>
-    <td style="border: 1px solid black;">Cerrar sesión.</td>
-  </tr>
-  <tr>
-    <td style="border: 1px solid black;"><code>PUT</code></td>
-    <td style="border: 1px solid black;">Actualizar los detalles de una película.</td>
-  </tr>
-  <tr>
-    <td style="border: 1px solid black;"><code>DELETE</code></td>
-    <td style="border: 1px solid black;">Eliminar una película con la ID (Primary key).</td>
-  </tr>
+      <td style="border: 1px solid black;"><code>POST</code></td>
+      <td style="border: 1px solid black;">Agregar reseñas a diferentes películas.</td>
+    </tr>
+        <tr>
+      <td style="border: 1px solid black;"><code>POST</code></td>
+      <td style="border: 1px solid black;">Agregar película favorita.</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black;"><code>POST</code></td>
+      <td style="border: 1px solid black;">Registro de usuario.</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black;"><code>POST</code></td>
+      <td style="border: 1px solid black;">Login de usuario.</td>
+    </tr>
+      <tr>
+      <td style="border: 1px solid black;"><code>POST</code></td>
+      <td style="border: 1px solid black;">Cambiar contraseña.</td>
+    </tr>
+        <tr>
+      <td style="border: 1px solid black;"><code>POST</code></td>
+      <td style="border: 1px solid black;">Cerrar sesión.</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black;"><code>PUT</code></td>
+      <td style="border: 1px solid black;">Actualizar los detalles de una película.</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black;"><code>DELETE</code></td>
+      <td style="border: 1px solid black;">Eliminar una película con la ID (Primary key).</td>
+    </tr>
+  </table>
+  <br>
  
 
  ## Demo de la API desde Swagger
@@ -145,6 +147,3 @@ Endpoint: `/api/delete/movie/2`
 Endpoint: `/api/delete/movie/2`
 
 ![delete_movie_authenticated](assets/delete_movie_authenticated.gif)
-
-
- 

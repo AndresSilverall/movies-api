@@ -68,10 +68,10 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 
 SWAGGER_SETTINGS = {
-    'USE_SESSION_AUTH': True,  # Deshabilita la autenticación basada en sesiones
+    'USE_SESSION_AUTH': True, 
     'api_version': '1.0', 
-    'enabled_methods': ['get', 'post', 'put', 'patch', 'delete'],  
-    'api_path': '/', 
+    'enabled_methods': ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],  
+    'api_path': '/api/doc', 
 }
 
 
@@ -92,17 +92,27 @@ DATABASES = {
 }
 
 
-REST_FRAMEWORK = {
+"""REST_FRAMEWORK = {
    
    'DEFAULT_PERMISSION_CLASSES': ( 'rest_framework.permissions.IsAuthenticated', ),
 
    
-}
+}"""
 
 DEFAULT_AUTHENTICATION_CLASSES: [
-    # 'rest_framework.authentication.SessionAuthentication',
+    'rest_framework.authentication.SessionAuthentication',
     'rest_framework.authentication.BasicAuthentication',
 ]
+
+
+# settings.py
+REST_FRAMEWORK = {
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.FormParser',
+        'rest_framework.parsers.MultiPartParser',
+        'rest_framework.parsers.JSONParser',
+    ]
+    }
 
 
 # Password validation

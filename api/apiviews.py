@@ -1,6 +1,7 @@
 from api.models import Movie, FavoriteMovie, ReviewMovie
 from django.contrib.auth import login, logout, authenticate
 from rest_framework import status
+from drf_yasg.utils import swagger_auto_schema
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
@@ -58,6 +59,7 @@ def get_movie_detail(request, pk: int):
 
 
 @api_view(["POST"])
+@swagger_auto_schema(request_body=MovieSerializer)
 @permission_classes([IsAuthenticated])
 def add_movie(request):
     """
