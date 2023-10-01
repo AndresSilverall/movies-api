@@ -140,8 +140,22 @@ Endpoint: `/api/delete/movie/2`
 ![delete_movie_authenticated](assets/delete_movie_authenticated.gif)
 
 
-### Demo de agregar película (Desde a interfaz de Django rest framework)
+### Demo de la API Desde la interfaz de Django rest framework
 
 Endpoint: `/api/add/movie/`
 
 ![add_movie](assets/add_movie.gif)
+
+
+#### Actualizar película
+ 
+Endpoint: `/api/update/movie/3`
+
+![update_movie](assets/update_movie.gif)
+
+
+#### Agregar reseña a película
+ 
+Endpoint: `/api/review/movie/`
+
+![review_movie](assets/review_movie.gif)
