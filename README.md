@@ -53,7 +53,7 @@ test = "python manage.py test"
 La Documentación de la API se implementó con Swagger, para acceder a la documentación acceda al siguiente recurso: `/api/doc/` una vez levantado el servidor.
 
 ## Métodos HTTP establecidos para los endpoints
-
+<br>
 <table style="border-collapse: collapse; width: 100%;">
     <tr>
       <td style="border: 1px solid black;">Método</td>

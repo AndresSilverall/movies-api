@@ -92,27 +92,16 @@ DATABASES = {
 }
 
 
-"""REST_FRAMEWORK = {
-   
-   'DEFAULT_PERMISSION_CLASSES': ( 'rest_framework.permissions.IsAuthenticated', ),
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES':
+        ('rest_framework.permissions.IsAuthenticatedOrReadOnly',),
+}
 
-   
-}"""
 
 DEFAULT_AUTHENTICATION_CLASSES: [
     'rest_framework.authentication.SessionAuthentication',
     'rest_framework.authentication.BasicAuthentication',
 ]
-
-
-# settings.py
-REST_FRAMEWORK = {
-    'DEFAULT_PARSER_CLASSES': [
-        'rest_framework.parsers.FormParser',
-        'rest_framework.parsers.MultiPartParser',
-        'rest_framework.parsers.JSONParser',
-    ]
-    }
 
 
 # Password validation
