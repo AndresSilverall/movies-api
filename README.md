@@ -142,6 +142,8 @@ Endpoint: `/api/delete/movie/2`
 
 ## Demo de la API Desde la interfaz de Django rest framework
 
+#### Agregar película
+
 Endpoint: `/api/add/movie/`
 
 ![add_movie](assets/add_movie.gif)
