@@ -162,7 +162,6 @@ Endpoint: `/api/review/movie/`
 
 ![review_movie](assets/review_movie.gif)
 
-
 #### Autenticación para acceder a los endpoints
 
 #### Registro de usuario
