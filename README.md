@@ -108,8 +108,6 @@ La Documentación de la API se implementó con Swagger, para acceder a la docume
       <td style="border: 1px solid black;">Eliminar una película con la ID (Primary key).</td>
     </tr>
   </table>
-  <br>
- 
 
  ## Demo de la API desde Swagger
 
@@ -127,13 +125,6 @@ Endpoint: `/api/movie/detail/6`
 ![get_movie_detail](assets/get_movie_detail.gif)
 
 
-#### Agregar película (autenticación requerida)
-
-Endpoint: `/api/add/movie/`
-
-![add_movie](assets/add_movie.gif)
-
-
 #### Eliminar una película en específico (autenticación requerida)
 
 Endpoint: `/api/delete/movie/2`
@@ -147,3 +138,10 @@ Endpoint: `/api/delete/movie/2`
 Endpoint: `/api/delete/movie/2`
 
 ![delete_movie_authenticated](assets/delete_movie_authenticated.gif)
+
+
+### Demo de agregar película (Desde a interfaz de Django rest framework)
+
+Endpoint: `/api/add/movie/`
+
+![add_movie](assets/add_movie.gif)
