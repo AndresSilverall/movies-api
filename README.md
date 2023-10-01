@@ -140,7 +140,7 @@ Endpoint: `/api/delete/movie/2`
 ![delete_movie_authenticated](assets/delete_movie_authenticated.gif)
 
 
-### Demo de la API Desde la interfaz de Django rest framework
+## Demo de la API Desde la interfaz de Django rest framework
 
 Endpoint: `/api/add/movie/`
 
@@ -159,3 +159,33 @@ Endpoint: `/api/update/movie/3`
 Endpoint: `/api/review/movie/`
 
 ![review_movie](assets/review_movie.gif)
+
+
+#### Autenticación para acceder a los endpoints
+
+#### Registro de usuario
+ 
+Endpoint: `/api/register/`
+
+![api_register](assets/api_register.gif)
+
+
+#### Login de usuario
+
+Endpoint: `/api/login/`
+
+![login](assets/login.gif)
+
+
+#### Cambiar contraseña
+
+Endpoint: `/api/changepassword/`
+
+![change_password](assets/change_password.gif)
+
+
+#### Logout
+
+Endpoint: `/api/logout/`
+
+![logout](assets/logout.gif)
