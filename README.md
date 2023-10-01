@@ -165,7 +165,6 @@ Endpoint: `/api/review/movie/`
 #### Autenticación para acceder a los endpoints
 
 #### Registro de usuario
- 
 Endpoint: `/api/register/`
 
 ![api_register](assets/api_register.gif)
